@@ -3,20 +3,20 @@ import java.util.*;
 public class FlashcardTrainer {
     private final CardOrganizer organizer;
     private final int repetitions;
+    private List<Card> cards;
 
     public FlashcardTrainer(CardOrganizer organizer, int repetitions) {
         this.organizer = organizer;
         this.repetitions = repetitions;
+        this.cards = new ArrayList<>(organizer.organize());
     }
 
     public void start() {
         try (Scanner scanner = new Scanner(System.in)) {
-            List<Card> organizedCards = organizer.organize();
-
             long start = System.currentTimeMillis();
             boolean allCorrect = true;
 
-            for (Card card : organizedCards) {
+            for (Card card : cards) {
                 int correctStreak = 0;
                 int totalRepeats = 0;
 
@@ -39,7 +39,7 @@ public class FlashcardTrainer {
                 if (totalRepeats > 5) {
                     System.out.println(": REPEAT");
                 }
-                if (card.correctCount >= 3) {
+                if (card.getCorrectCount() >= 3) {
                     System.out.println(": CONFIDENT");
                 }
             }
@@ -48,7 +48,7 @@ public class FlashcardTrainer {
             if (allCorrect) {
                 System.out.println(": CORRECT");
             }
-            if ((double) totalTime / organizedCards.size() < 5) {
+            if ((double) totalTime / cards.size() < 5) {
                 System.out.println(": FAST LEARNER");
             }
         }

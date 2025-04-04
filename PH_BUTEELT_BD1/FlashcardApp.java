@@ -13,6 +13,7 @@ public class FlashcardApp {
         int repetitions = 1;
         boolean invertCards = false;
 
+        // Parse command line arguments
         for (int i = 1; i < args.length; i++) {
             if (args[i].equals("--order") && i + 1 < args.length) {
                 order = args[i + 1];
@@ -24,10 +25,13 @@ public class FlashcardApp {
         }
 
         List<Card> cards = FlashcardLoader.loadCards(fileName, invertCards);
-        CardOrganizer organizer = getOrganizer(order, cards);
+        cards = Card.loadStats(cards);  
 
+        CardOrganizer organizer = getOrganizer(order, cards);
         FlashcardTrainer trainer = new FlashcardTrainer(organizer, repetitions);
         trainer.start();
+
+        Card.saveStats(cards);
     }
 
     private static CardOrganizer getOrganizer(String order, List<Card> cards) {
