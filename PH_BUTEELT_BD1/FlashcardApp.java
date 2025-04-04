@@ -40,9 +40,9 @@ public class FlashcardApp {
 
     private static void printHelp() {
         System.out.println("flashcard <cards-file> [options]");
-        System.out.println("--help                      Тусламж харуулах");
-        System.out.println("--order <order>             Зохион байгуулалт: random, worst-first, recent-mistakes-first");
-        System.out.println("--repetitions <num>         Нэг картыг хэдэн удаа зөв хариулах шаардлагатай");
-        System.out.println("--invertCards               Асуулт, хариултыг сольж харуулах");
+        System.out.println("--help                      tuslamjiin medeelel haruulah");
+        System.out.println("--order <order>             Zohion baiguulalt: random, worst-first, recent-mistakes-first");
+        System.out.println("--repetitions <num>         Neg cardiig hdn udaa zuv haruulahiig shaardlaga bolgono");
+        System.out.println("--invertCards               asuult hariult solij haruulna");
     }
 }

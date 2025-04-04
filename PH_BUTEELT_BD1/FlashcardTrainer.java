@@ -21,35 +21,35 @@ public class FlashcardTrainer {
                 int totalRepeats = 0;
 
                 while (correctStreak < repetitions) {
-                    System.out.println("Асуулт: " + card.question);
+                    System.out.println("Asuult: " + card.question);
                     System.out.print("→ ");
                     String answer = scanner.nextLine();
                     totalRepeats++;
 
                     if (card.checkAnswer(answer)) {
                         correctStreak++;
-                        System.out.println("Зөв!\n");
+                        System.out.println("Zuv bn!\n");
                     } else {
                         correctStreak = 0;
                         allCorrect = false;
-                        System.out.println("Буруу! Хариулт: " + card.answer + "\n");
+                        System.out.println("Buruu bn! Zuv hariult: " + card.answer + "\n");
                     }
                 }
 
                 if (totalRepeats > 5) {
-                    System.out.println("🏆 Амжилт: REPEAT");
+                    System.out.println(": REPEAT");
                 }
                 if (card.correctCount >= 3) {
-                    System.out.println("🏆 Амжилт: CONFIDENT");
+                    System.out.println(": CONFIDENT");
                 }
             }
 
             long totalTime = (System.currentTimeMillis() - start) / 1000;
             if (allCorrect) {
-                System.out.println("🏆 Амжилт: CORRECT");
+                System.out.println(": CORRECT");
             }
             if ((double) totalTime / organizedCards.size() < 5) {
-                System.out.println("🏆 Амжилт: FAST LEARNER");
+                System.out.println(": FAST LEARNER");
             }
         }
     }

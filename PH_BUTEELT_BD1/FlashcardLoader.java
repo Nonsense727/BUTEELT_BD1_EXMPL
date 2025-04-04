@@ -15,7 +15,7 @@ public class FlashcardLoader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Файлыг уншихад алдаа гарлаа: " + e.getMessage());
+            System.out.println("Failig unshihad aldaa garsn: " + e.getMessage());
         }
         return cards;
     }
