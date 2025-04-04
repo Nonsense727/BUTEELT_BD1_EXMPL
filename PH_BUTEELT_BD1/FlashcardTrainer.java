@@ -22,7 +22,7 @@ public class FlashcardTrainer {
 
                 while (correctStreak < repetitions) {
                     System.out.println("Asuult: " + card.question);
-                    System.out.print("→ ");
+                    System.out.print("Tanii hariult: ");
                     String answer = scanner.nextLine();
                     totalRepeats++;
 
