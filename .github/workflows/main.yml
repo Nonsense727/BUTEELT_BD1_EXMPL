@@ -1,0 +1,28 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo-г татах
+      uses: actions/checkout@v3
+
+    - name: Java суулгах
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Build, test & site
+      run: |
+        mvn clean install
+        mvn test
+        mvn site
